@@ -1,51 +1,50 @@
-# FanoutExchangeDemo
-An event-driven microservice architecture built with .NET 8, RabbitMQ, and Entity Framework Core, designed to handle user registration and trigger chained events through fanout exchanges.
+# 📨 FanoutExchangeDemo
 
-# 🚀 Technologies Used
+An event-driven microservice architecture built with **.NET 8**, **RabbitMQ**, and **Entity Framework Core**, designed to handle user registration and trigger chained events through fanout exchanges.
 
-C# / .NET 8
+---
 
-ASP.NET Core Web API
+## 🚀 Technologies Used
 
-Entity Framework Core
+- C# / .NET 8  
+- ASP.NET Core Web API  
+- Entity Framework Core  
+- RabbitMQ (Fanout Exchanges)  
+- SQL Server  
+- JWT Authentication  
+- Password Hashing via Microsoft Identity  
 
-RabbitMQ (Fanout Exchanges)
+---
 
-SQL Server
+## 🧱 Project Structure
 
-JWT Authentication
-
-Password Hashing via Microsoft Identity
-
-
-# 🧱 Project Structure
 The solution consists of five independent components:
 
-1. UserService (API)
-Provides endpoints for user registration (/register) and login (/login)
+### 1. **UserService (API)**
+- Provides endpoints for user registration (`/register`) and login (`/login`)
+- Implements JWT-based authentication
+- On successful registration, publishes a message to the `user_events` RabbitMQ exchange
 
-Implements JWT-based authentication
+### 2. **ProducerApp**
+- A standalone console app that sends test messages to the `user_events` exchange
+- Useful for debugging and testing the RabbitMQ pipeline independently
 
-On successful registration, publishes a message to the user_events RabbitMQ exchange
+### 3. **EmailConsumerApp**
+- Listens to messages from the `user_events` exchange
+- Simulates sending a welcome email to the user
+- After sending the email, publishes a new message to the `payment_events` exchange
 
-2. ProducerApp
-A standalone console app that sends test messages to the user_events exchange
+### 4. **PaymentConsumerApp**
+- Subscribes to the `payment_events` exchange
+- Simulates the creation of a payment record based on the received message
 
-Useful for debugging and testing the RabbitMQ pipeline independently
+### 5. **LoggerConsumerApp**
+- Also listens to the `payment_events` exchange
+- Logs all received messages for monitoring and traceability
 
-3. EmailConsumerApp
-Listens to messages from the user_events exchange
+---
 
-Simulates sending a welcome email to the user
+## 🔄 Event Flow
 
-After sending the email, publishes a new message to the payment_events exchange
-
-4. PaymentConsumerApp
-Subscribes to the payment_events exchange
-
-Simulates the creation of a payment record based on the received message
-
-5. LoggerConsumerApp
-Also listens to the payment_events exchange
-
-Logs all received messages for monitoring and traceability
+```plaintext
+UserService → [user_events] → EmailConsumerApp → [payment_events] → PaymentConsumerApp + LoggerConsumerApp
