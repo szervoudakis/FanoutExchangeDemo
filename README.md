@@ -48,3 +48,14 @@ The solution consists of five independent components:
 
 ```plaintext
 UserService → [user_events] → EmailConsumerApp → [payment_events] → PaymentConsumerApp + LoggerConsumerApp
+---
+
+## 📁 How to Run
+
+```plaintext
+1) Ensure RAbbitMQ is running type in cmd docker-compose up -d
+2) cd UserService
+3) dotnet run
+4) Run the consumers: EmailConsumerApp, PaymentConsumerApp, and LoggerConsumerApp
+5) Send a POST request to /api/auth/register to trigger the event chain
+---
