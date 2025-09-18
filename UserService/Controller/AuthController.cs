@@ -30,14 +30,7 @@ namespace UserService.Controller
             _passwordHasher = new PasswordHasher<User>();
             _publisher = publisher;
         }
-
-        public class LoginRequest
-        {
-        public string? Username { get; set; }
-        public string? Password { get; set; }
-
-
-        }
+        
         [HttpPost("register")]
         public IActionResult Register([FromBody] RegisterRequest request)
         {
