@@ -1,0 +1,17 @@
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\bin\Debug\net8.0\LoggerConsumerApp.exe
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\bin\Debug\net8.0\LoggerConsumerApp.dll
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\bin\Debug\net8.0\LoggerConsumerApp.deps.json
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\bin\Debug\net8.0\LoggerConsumerApp.runtimeconfig.json
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\bin\Debug\net8.0\LoggerConsumerApp.pdb
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.csproj.AssemblyReference.cache
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.AssemblyInfoInputs.cache
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.AssemblyInfo.cs
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.csproj.CoreCompileInputs.cache
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerCo.BA68D549.Up2Date
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.dll
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\refint\LoggerConsumerApp.dll
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.pdb
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\LoggerConsumerApp.genruntimeconfig.cache
+C:\Users\steze\Desktop\projects-c#\FanoutExchangeDemo\LoggerConsumerApp\obj\Debug\net8.0\ref\LoggerConsumerApp.dll
