@@ -1,0 +1,57 @@
+# Build artifacts
+**/bin/
+**/obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.temp
+*.bak
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# NuGet packages
+*.nupkg
+.nuget/
+
+# ASP.NET secrets (optional)
+secrets.json
+
+# Environment configs
+appsettings.json
+appsettings.Local.json
+
+# Publish output
+**/publish/
+**/out/
+
+# Test results
+TestResults/
+
+# Entity Framework
+Migrations/
+
+# Docker artifacts
+*.pid
+*.seed
+*.db
+
+# RabbitMQ message dumps (if any)
+*.msgdump
+*.mqlog
