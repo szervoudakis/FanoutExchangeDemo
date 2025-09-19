@@ -1,4 +1,4 @@
-namespace UserService.Entities
+namespace UserService.WebApi.Entities
 {
     public class User
     {

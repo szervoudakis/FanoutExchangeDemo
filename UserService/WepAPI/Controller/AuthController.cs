@@ -6,12 +6,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
-using UserService.Models;
-using UserService.Entities;
-using UserService.Data;
-using UserService.Services;
+using UserService.WebApi.Models;
+using UserService.WebApi.Entities;
+using UserService.WebApi.Data;
+using UserService.WebApi.Services;
 
-namespace UserService.Controller
+namespace UserService.WebApi.Controller
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -21,7 +21,7 @@ namespace UserService.Controller
         private readonly AppDbContext _context;
         private readonly PasswordHasher<User> _passwordHasher;
 
-         private readonly RabbitMqPublisher _publisher;
+        private readonly RabbitMqPublisher _publisher;
 
         public AuthController(IConfiguration configuration, AppDbContext context, RabbitMqPublisher publisher)
         {
@@ -30,7 +30,7 @@ namespace UserService.Controller
             _passwordHasher = new PasswordHasher<User>();
             _publisher = publisher;
         }
-        
+
         [HttpPost("register")]
         public IActionResult Register([FromBody] RegisterRequest request)
         {

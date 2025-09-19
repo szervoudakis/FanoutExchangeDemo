@@ -1,4 +1,4 @@
-namespace UserService.Models
+namespace UserService.WebApi.Models
 {
     public class RegisterRequest
     {

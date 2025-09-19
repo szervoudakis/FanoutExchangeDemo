@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text;
-using UserService.Data;
+using UserService.WebApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using UserService.Services;
+using UserService.WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

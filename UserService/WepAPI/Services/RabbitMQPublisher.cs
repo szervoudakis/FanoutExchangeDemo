@@ -1,7 +1,7 @@
 using RabbitMQ.Client;
 using System.Text;
 
-namespace UserService.Services
+namespace UserService.WebApi.Services
 {
     public class RabbitMqPublisher
     {
