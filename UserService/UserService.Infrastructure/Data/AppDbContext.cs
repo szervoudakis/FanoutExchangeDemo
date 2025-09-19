@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using UserService.WebApi.Entities;
+using UserService.Domain.Entities;
 
-namespace UserService.WebApi.Data
+namespace UserService.Infrastructure.Data
 {
     public class AppDbContext : DbContext
     {

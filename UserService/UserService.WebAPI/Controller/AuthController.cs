@@ -6,12 +6,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
-using UserService.WebApi.Models;
-using UserService.WebApi.Entities;
-using UserService.WebApi.Data;
-using UserService.WebApi.Services;
+using UserService.WebAPI.Models;
+using UserService.Domain.Entities;
+using UserService.Infrastructure.Data;
+using UserService.WebAPI.Services;
 
-namespace UserService.WebApi.Controller
+namespace UserService.WebAPI.Controller
 {
     [ApiController]
     [Route("api/[controller]")]
