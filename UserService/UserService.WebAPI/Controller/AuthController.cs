@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
-using UserService.WebAPI.Models;
+using UserService.Application.DTOs;
 using UserService.Domain.Entities;
 using UserService.Infrastructure.Data;
 using UserService.WebAPI.Services;

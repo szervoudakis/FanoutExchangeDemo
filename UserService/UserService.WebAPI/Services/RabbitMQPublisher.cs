@@ -7,7 +7,6 @@ namespace UserService.WebAPI.Services
     {
         private readonly ConnectionFactory _factory;
 
-
         public RabbitMqPublisher()
         {
             _factory = new ConnectionFactory() { HostName = "localhost" };   

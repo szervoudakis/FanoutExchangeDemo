@@ -1,4 +1,4 @@
-namespace UserService.WebAPI.Models
+namespace UserService.Application.DTOs
 {
     public class LoginRequest
     {
