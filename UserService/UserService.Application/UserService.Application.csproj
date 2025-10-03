@@ -5,5 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+<ItemGroup>
+    <!-- MediatR Core -->
+    <PackageReference Include="MediatR" Version="12.2.0" />
 
+
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="12.2.0" />
+
+  </ItemGroup>
 </Project>
