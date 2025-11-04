@@ -1,15 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using UserService.WebAPI.Services;
 using UserService.Infrastructure.Data;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,42 +12,35 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UserServiceDb")));
 
-
+// Add MediatR 
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(RegisterUserCommand).Assembly));
-
+    cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 
 builder.Services.AddControllers();
-builder.Services.AddControllers();
-builder.Services.AddSingleton<RabbitMqPublisher>(); //inject rabbitpublisher -> DI container
+builder.Services.AddSingleton<RabbitMqPublisher>();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-
     .AddJwtBearer(options =>
     {
-        options.SaveToken = true;//for debugging
+        options.SaveToken = true;
         var jwtKey = builder.Configuration["Jwt:Key"]
-        ?? throw new InvalidOperationException("JWT Key not found in configuration."); //if jwt is null throw exception
+            ?? throw new InvalidOperationException("JWT Key not found in configuration.");
+
         options.TokenValidationParameters = new TokenValidationParameters
         {
-
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(jwtKey))
-
+                Encoding.UTF8.GetBytes(jwtKey))
         };
-        // Console.WriteLine($"Configured JWT Issuer: {options.TokenValidationParameters.ValidIssuer}");
-        // Console.WriteLine($"Configured JWT Audience: {options.TokenValidationParameters.ValidAudience}");
-        
     });
 
-
 var app = builder.Build();
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

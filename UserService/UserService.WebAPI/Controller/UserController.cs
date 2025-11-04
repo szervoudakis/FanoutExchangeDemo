@@ -2,9 +2,8 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using UserService.Domain.Entities;
-using UserService.Infrastructure.Data;
 using UserService.Application.Users.Queries.GetUserProfile;
+using UserService.Infrastructure.Data;
 
 namespace UserService.Controllers
 {
@@ -13,8 +12,7 @@ namespace UserService.Controllers
     public class UserController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        private readonly IMediator mediator;
+        private readonly IMediator _mediator;
 
         public UserController(AppDbContext context, IMediator mediator)
         {
@@ -24,14 +22,14 @@ namespace UserService.Controllers
 
         [HttpGet("profile")]
         [Authorize]
-        public IActionResult GetProfile()
+        public async Task<IActionResult> GetProfile()
         {
             try
             {
-                // Read username from JWT claims (read JWT bearer token and take username)
-                var userid = UserFindFirst(ClaimTypes.NameIdentified)?.Value;
+                // Read userId from JWT claims
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-                if (string.IsNullOrEmpty(userid))
+                if (string.IsNullOrEmpty(userId))
                     return Unauthorized("Invalid token or user info missing");
 
                 var query = new GetUserProfileQuery { UserId = userId };
@@ -41,7 +39,6 @@ namespace UserService.Controllers
                     return NotFound();
 
                 return Ok(result);
-            
             }
             catch (Exception ex)
             {

@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain", "UserS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Application", "UserService\UserService.Application\UserService.Application.csproj", "{6CEE0738-C590-4D5D-A522-EB244704BAC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "UserService\UserService.Infrastructure\UserService.Infrastructure.csproj", "{8779C8EB-3A95-4294-A655-172CB871D1BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.WebAPI", "UserService\UserService.WebAPI\UserService.WebAPI.csproj", "{645D6B30-4903-48A0-BEF0-4FB9DD827990}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,14 @@ Global
 		{6CEE0738-C590-4D5D-A522-EB244704BAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CEE0738-C590-4D5D-A522-EB244704BAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CEE0738-C590-4D5D-A522-EB244704BAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8779C8EB-3A95-4294-A655-172CB871D1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8779C8EB-3A95-4294-A655-172CB871D1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8779C8EB-3A95-4294-A655-172CB871D1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8779C8EB-3A95-4294-A655-172CB871D1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645D6B30-4903-48A0-BEF0-4FB9DD827990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{645D6B30-4903-48A0-BEF0-4FB9DD827990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{645D6B30-4903-48A0-BEF0-4FB9DD827990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{645D6B30-4903-48A0-BEF0-4FB9DD827990}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B04D6204-18DF-4442-B3ED-87B34D5C579A} = {3296307A-6AE8-4463-BC86-9CDAF565EDA4}
 		{6CEE0738-C590-4D5D-A522-EB244704BAC2} = {3296307A-6AE8-4463-BC86-9CDAF565EDA4}
+		{8779C8EB-3A95-4294-A655-172CB871D1BC} = {3296307A-6AE8-4463-BC86-9CDAF565EDA4}
+		{645D6B30-4903-48A0-BEF0-4FB9DD827990} = {3296307A-6AE8-4463-BC86-9CDAF565EDA4}
 	EndGlobalSection
 EndGlobal

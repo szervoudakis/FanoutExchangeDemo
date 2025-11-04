@@ -8,3 +8,6 @@ namespace UserService.Application.Users.Queries.GetUserProfile
         public string UserId { get; set; } = string.Empty;
     }
 }
+
+
+ 
