@@ -8,12 +8,12 @@ namespace UserService.Application.Users.Queries.GetUserProfile
 {
     public class GetUserProfileQueryHandler : IRequestHandler<GetUserProfileQuery, UserProfileDto?>
     {
-        private readonly IUserRepository _userRepository;
+       private readonly IUserRepository _userRepository;
 
        public GetUserProfileQueryHandler(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-        }
+       {
+          _userRepository = userRepository;
+       }
 
         public async Task<UserProfileDto?> Handle(GetUserProfileQuery request, CancellationToken cancellationToken)
         {

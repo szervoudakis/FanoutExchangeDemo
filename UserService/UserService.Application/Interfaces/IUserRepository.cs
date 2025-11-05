@@ -5,6 +5,8 @@ namespace UserService.Application.Interfaces
     public interface IUserRepository
     {
         Task<UserProfileDto?> GetUserProfileAsync(int userId);
+
+        Task<bool> DeleteUserAsync(int userId);
         
     }
 }

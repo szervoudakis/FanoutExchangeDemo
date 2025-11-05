@@ -25,6 +25,20 @@ namespace UserService.Infrastructure.Repositories
                 })
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<bool> DeleteUserAsync(int userId)
+        {
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                return false;
+            }
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }
 

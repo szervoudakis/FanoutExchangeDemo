@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using UserService.Application.Users.Queries.GetUserProfile;
 using UserService.Infrastructure.Data;
+using UserService.Application.Users.Commands.UserCommands;
 
 namespace UserService.Controllers
 {
@@ -20,39 +21,12 @@ namespace UserService.Controllers
             _mediator = mediator;
         }
 
-        // [HttpGet("profile")]
-        // [Authorize]
-        // public async Task<IActionResult> GetProfile()
-        // {
-        //     try
-        //     {
-        //         // Read userId from JWT claims
-        //         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        //         if (string.IsNullOrEmpty(userId))
-        //             return Unauthorized("Invalid token or user info missing");
-
-        //         var query = new GetUserProfileQuery { UserId = userId };
-        //         var result = await _mediator.Send(query);
-
-        //         if (result == null)
-        //             return NotFound();
-
-        //         return Ok(result);
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return StatusCode(500, new { error = ex.Message });
-        //     }
-        // }
-        
-
         //get request to retrieve user's info (email, id, username)
         [HttpGet("{id}")]
         [Authorize]
         public async Task<IActionResult> GetUserById(string id)
         {
-            
+
             try
             {
                 var query = new GetUserProfileQuery { UserId = id };
@@ -67,6 +41,27 @@ namespace UserService.Controllers
             {
                 return StatusCode(500, new { error = ex.Message });
             }
+        }
+
+        //delete specific user
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            try
+            {
+                var command = new DeleteUserCommand { UserId = id };
+                var result = await _mediator.Send(command);
+
+                if (!result)
+                    return NotFound($"User with ID {id} not found.");
+
+                return StatusCode(200,new { message = $"User with ID {id} deleted successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            } 
         }
     }
 }
