@@ -20,23 +20,46 @@ namespace UserService.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("profile")]
+        // [HttpGet("profile")]
+        // [Authorize]
+        // public async Task<IActionResult> GetProfile()
+        // {
+        //     try
+        //     {
+        //         // Read userId from JWT claims
+        //         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        //         if (string.IsNullOrEmpty(userId))
+        //             return Unauthorized("Invalid token or user info missing");
+
+        //         var query = new GetUserProfileQuery { UserId = userId };
+        //         var result = await _mediator.Send(query);
+
+        //         if (result == null)
+        //             return NotFound();
+
+        //         return Ok(result);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return StatusCode(500, new { error = ex.Message });
+        //     }
+        // }
+        
+
+        //get request to retrieve user's info (email, id, username)
+        [HttpGet("{id}")]
         [Authorize]
-        public async Task<IActionResult> GetProfile()
+        public async Task<IActionResult> GetUserById(string id)
         {
+            
             try
             {
-                // Read userId from JWT claims
-                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-                if (string.IsNullOrEmpty(userId))
-                    return Unauthorized("Invalid token or user info missing");
-
-                var query = new GetUserProfileQuery { UserId = userId };
+                var query = new GetUserProfileQuery { UserId = id };
                 var result = await _mediator.Send(query);
 
                 if (result == null)
-                    return NotFound();
+                    return NotFound($"User with ID {id} not found.");
 
                 return Ok(result);
             }

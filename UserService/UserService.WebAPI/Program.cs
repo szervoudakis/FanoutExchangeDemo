@@ -5,8 +5,14 @@ using Microsoft.IdentityModel.Tokens;
 using UserService.WebAPI.Services;
 using UserService.Infrastructure.Data;
 using MediatR;
+using UserService.Application.Interfaces;
+using UserService.Infrastructure.Repositories;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Add DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>

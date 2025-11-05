@@ -52,4 +52,4 @@ The solution consists of five independent components:
 3) dotnet run
 4) Run the consumers: EmailConsumerApp, PaymentConsumerApp, and LoggerConsumerApp
 5) Send a POST request to /api/auth/register to trigger the event chain
-
+6) Get request for user's info with /api/User/{id}  
