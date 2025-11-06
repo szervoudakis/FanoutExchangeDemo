@@ -1,9 +1,10 @@
 using MediatR;
 using UserService.Application.Interfaces;
+using UserService.Domain.Entities;
 
 namespace UserService.Application.Users.Commands.UserCommands
 {
-    public class DeleteUserCommandHandler: IRequestHandler<DeleteUserCommand, bool>
+    public class DeleteUserCommandHandler: IRequestHandler<DeleteUserCommand, User?>
     {
         private readonly IUserRepository _userRepository;
 
@@ -12,7 +13,7 @@ namespace UserService.Application.Users.Commands.UserCommands
             _userRepository = userRepository;
         }
 
-        public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        public async Task<User?> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             var userId = int.Parse(request.UserId);
 

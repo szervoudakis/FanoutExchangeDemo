@@ -25,5 +25,20 @@ namespace UserService.WebAPI.Services
             channel.BasicPublish(exchange: "user_events", routingKey: "", basicProperties: null, body: body);
             Console.WriteLine($"Published: {message}");
         }
+
+        public void PublishUserDeleted(string username,string email)
+        {
+            using var connection = _factory.CreateConnection();
+            using var channel = connection.CreateModel();
+
+            channel.ExchangeDeclare("user_events", ExchangeType.Fanout);
+
+            var message = $"We are very sad that you deleted your account!";
+            var body = Encoding.UTF8.GetBytes(message);
+
+            channel.BasicPublish(exchange: "user_events", routingKey: "", basicProperties: null, body: body);
+            Console.WriteLine($"Published : {message}");
+            
+        }
     }
 }

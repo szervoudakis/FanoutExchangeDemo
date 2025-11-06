@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using UserService.Application.Interfaces;
 using UserService.Application.Users.Queries.GetUserProfile;
+using UserService.Domain.Entities;
 using UserService.Infrastructure.Data;
 namespace UserService.Infrastructure.Repositories
 {
@@ -26,18 +27,18 @@ namespace UserService.Infrastructure.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<bool> DeleteUserAsync(int userId)
+        public async Task<User?> DeleteUserAsync(int userId)
         {
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user == null)
             {
-                return false;
+                return null;
             }
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
-            return true;
+            return user;
         }
     }
 }
